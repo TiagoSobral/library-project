@@ -3,7 +3,12 @@ const myLibrary = [
     "Harry Potter: The Goblet of Fire", 
     "Hunger Games"];
 
-function Book() {
+function Book(title, author) {
+    this.title = title;
+    this.author = author;
+    this.id = function() {
+        return crypto.randomUUID();
+    }
 };
 
 function addBookToLibrary() {};
