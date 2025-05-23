@@ -1,17 +1,16 @@
-const myLibrary = [
-    "Harry Potter: The Philosopher Stone", 
-    "Harry Potter: The Goblet of Fire", 
-    "Hunger Games"];
+const myLibrary = [];
 
 function Book(title, author) {
     this.title = title;
     this.author = author;
-    this.id = function() {
-        return crypto.randomUUID();
-    }
+    this.id = crypto.randomUUID();
 };
 
-function addBookToLibrary() {};
+function addBookToLibrary(name, author) {
+    let book = new Book(name, author);
+    console.log(book)
+    myLibrary.push(book);
+};
 
 const tableBody = document.querySelector("tbody");
 
@@ -20,12 +19,14 @@ function displayOnPage(array) {
         let bookRow = document.createElement("tr");
         let bookInfo = document.createElement("td");
         bookInfo.setAttribute("id", crypto.randomUUID())
-        bookInfo.textContent = element;
+        bookInfo.textContent = element.value;
+        console.log(element.value);
         tableBody.appendChild(bookRow);
         bookRow.appendChild(bookInfo);
     });
 };
 
+addBookToLibrary("Pedra Filosofal", "J.K Rowling");
 displayOnPage(myLibrary);
 
 
