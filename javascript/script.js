@@ -1,3 +1,5 @@
+const tableBody = document.querySelector("tbody");
+
 const myLibrary = [];
 
 function Book(title, author) {
@@ -8,25 +10,28 @@ function Book(title, author) {
 
 function addBookToLibrary(name, author) {
     let book = new Book(name, author);
-    console.log(book)
     myLibrary.push(book);
+    displayOnPage(myLibrary);
 };
-
-const tableBody = document.querySelector("tbody");
 
 function displayOnPage(array) {
     array.forEach( (element) => {
         let bookRow = document.createElement("tr");
-        let bookInfo = document.createElement("td");
-        bookInfo.setAttribute("id", crypto.randomUUID())
-        bookInfo.textContent = element.value;
-        console.log(element.value);
+        let bookTitle = document.createElement("td");
+        let bookAuthor = document.createElement("td");
+        let bookId = document.createElement("td");
+
+
+        bookTitle.textContent = element.title;
+        bookAuthor.textContent = element.author;
+        bookId.textContent = element.id;
+
         tableBody.appendChild(bookRow);
-        bookRow.appendChild(bookInfo);
+        bookRow.appendChild(bookTitle);
+        bookRow.appendChild(bookAuthor);
+        bookRow.appendChild(bookId);
     });
 };
 
-addBookToLibrary("Pedra Filosofal", "J.K Rowling");
-displayOnPage(myLibrary);
 
 
