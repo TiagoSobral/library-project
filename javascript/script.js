@@ -26,22 +26,24 @@ function addBookToLibrary(name, author) {
 };
 
 function displayOnPage(array) {
-    array.forEach( (element) => {
-        let bookRow = document.createElement("tr");
-        let bookTitle = document.createElement("td");
-        let bookAuthor = document.createElement("td");
-        let bookId = document.createElement("td");
 
+    const bookRow = document.createElement("tr");
+    const bookTitle = document.createElement("td");
+    const bookAuthor = document.createElement("td");
+    const bookId = document.createElement("td");
+
+    array.forEach( (element) => {
 
         bookTitle.textContent = element.title;
         bookAuthor.textContent = element.author;
         bookId.textContent = element.id;
-
-        tableBody.appendChild(bookRow);
-        bookRow.appendChild(bookTitle);
-        bookRow.appendChild(bookAuthor);
-        bookRow.appendChild(bookId);
     });
+
+    tableBody.appendChild(bookRow);
+    bookRow.appendChild(bookTitle);
+    bookRow.appendChild(bookAuthor);
+    bookRow.appendChild(bookId);
+
 };
 
 
