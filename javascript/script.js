@@ -14,6 +14,7 @@ function displayOnPage(array) {
     array.forEach( (element) => {
         let bookRow = document.createElement("tr");
         let bookInfo = document.createElement("td");
+        bookInfo.setAttribute("id", crypto.randomUUID())
         bookInfo.textContent = element;
         tableBody.appendChild(bookRow);
         bookRow.appendChild(bookInfo);
