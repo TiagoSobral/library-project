@@ -50,6 +50,7 @@ function displayOnPage(array) {
 const dialog = document.querySelector("dialog");
 const btnNewBook = document.querySelector(".btn-new-book");
 const btnCancel = document.querySelector(".btn-cancel-form");
+const btnSubmit = document.querySelector(".btn-submit-form");
 
 btnNewBook.addEventListener("click", () => {
     dialog.showModal();
@@ -58,6 +59,13 @@ btnNewBook.addEventListener("click", () => {
 btnCancel.addEventListener("click", () => {
     dialog.close();
 });
+
+btnSubmit.addEventListener("click", (event) => {
+    event.preventDefault();
+});
+
+
+
 
 
 
