@@ -46,5 +46,18 @@ function displayOnPage(array) {
 
 };
 
+// DIALOG SECTION
+const dialog = document.querySelector("dialog");
+const btnNewBook = document.querySelector(".btn-new-book");
+const btnCancel = document.querySelector(".btn-cancel-form");
+
+btnNewBook.addEventListener("click", () => {
+    dialog.showModal();
+});
+
+btnCancel.addEventListener("click", () => {
+    dialog.close();
+});
+
 
 
