@@ -13,28 +13,37 @@
     <header>
         <dialog>
             <form class="add-book-form">
-                <div>
-                    <label for="book-title">Book Title</label>
-                    <input type="text" id="book-title" name="book-title">
-                </div>
-                <div>
-                    <label for="book-author">Book Author</label>
-                    <input type="text" id="book-author" name="book-author">
-                </div>
-                <div>
-                    <label for="book-pages">Book Pages</label>
-                    <input type="number" id="book-pages" name="book-pages">
-                </div>
-                <div>
-                    <label for="book-was-read">Have you read the book?</label>
-                    <input type="radio" id="book-was-read" name="book-was-read">
-                </div>
-                <div>
-                    <button type="submit" class="btn-submit-form">Add Book</button>
-                </div>
-                <div>
-                    <button class="btn-cancel-form">Cancel</button>
-                </div>
+                    <fieldset>
+                        <div>
+                            <label for="book-title">Book Title</label>
+                            <input type="text" id="book-title" name="book-title">
+                        </div>
+                        <div>
+                            <label for="book-author">Book Author</label>
+                            <input type="text" id="book-author" name="book-author">
+                        </div>
+                        <div>
+                            <label for="book-pages">Book Pages</label>
+                            <input type="number" id="book-pages" name="book-pages">
+                        </div>
+                    </fieldset>
+                <fieldset>
+                    <legend>Have you read the book?</legend>
+                    <div>
+                        <label for="book-was-read">Yes</label>
+                        <input type="radio" id="book-was-read" name="book-was-read" value="yes">
+                        <label for="book-was-noread">No</label>
+                        <input type="radio" id="book-was-read" name="book-was-noread" value="no">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <div>
+                        <button type="submit" class="btn-submit-form">Add Book</button>
+                    </div>
+                    <div>
+                        <button class="btn-cancel-form">Cancel</button>
+                    </div>
+                </fieldset>
             </form>
         </dialog>
         <button class="btn-new-book">New Book</button>
