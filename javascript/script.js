@@ -12,38 +12,41 @@ const myLibrary = [];
 
 // FUNCTIONS
 
-function Book(title, author) {
+function Book(title, author, pages, readBook) {
     this.title = title;
     this.author = author;
     this.id = crypto.randomUUID();
+    this.pages = pages;
+    this.readBook = readBook;
 };
 
-function addBookToLibrary(name, author) {
-    let book = new Book(name, author);
+function addBookToLibrary(name, author, pages, readBook) {
+    let book = new Book(name, author, pages, readBook);
     myLibrary.push(book);
     table.setAttribute("style", "display: visible");
     displayOnPage(myLibrary);
 };
 
 function displayOnPage(array) {
-
+    
     const bookRow = document.createElement("tr");
     const bookTitle = document.createElement("td");
     const bookAuthor = document.createElement("td");
-    const bookId = document.createElement("td");
+    const bookPages = document.createElement("td");
+    const bookWasRead = document.createElement("td");
 
     array.forEach( (element) => {
-
         bookTitle.textContent = element.title;
         bookAuthor.textContent = element.author;
-        bookId.textContent = element.id;
+        bookPages.textContent = element.pages;
+        bookWasRead.textContent = element.readBook;
     });
 
     tableBody.appendChild(bookRow);
     bookRow.appendChild(bookTitle);
     bookRow.appendChild(bookAuthor);
-    bookRow.appendChild(bookId);
-
+    bookRow.appendChild(bookPages);
+    bookRow.appendChild(bookWasRead);
 };
 
 // DIALOG SECTION
