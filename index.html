@@ -12,18 +12,18 @@
 <body>
     <header>
         <dialog>
-            <form class="add-book-form">
+            <form class="add-book-form" method="dialog">
                     <fieldset>
                         <div>
-                            <label for="book-title">Book Title</label>
+                            <label for="book-title">Title</label>
                             <input type="text" id="book-title" name="book-title">
                         </div>
                         <div>
-                            <label for="book-author">Book Author</label>
+                            <label for="book-author">Author</label>
                             <input type="text" id="book-author" name="book-author">
                         </div>
                         <div>
-                            <label for="book-pages">Book Pages</label>
+                            <label for="book-pages">Pages</label>
                             <input type="number" id="book-pages" name="book-pages">
                         </div>
                     </fieldset>
@@ -38,7 +38,7 @@
                 </fieldset>
                 <fieldset>
                     <div>
-                        <button type="submit" class="btn-submit-form">Add Book</button>
+                        <button type="submit" class="btn-submit-form" formmethod="dialog">Add Book</button>
                     </div>
                     <div>
                         <button class="btn-cancel-form">Cancel</button>
