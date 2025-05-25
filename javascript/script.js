@@ -35,6 +35,8 @@ function displayOnPage(array) {
     const bookPages = document.createElement("td");
     const bookWasRead = document.createElement("td");
 
+    bookRow.setAttribute("id", crypto.randomUUID());
+
     array.forEach( (element) => {
         bookTitle.textContent = element.title;
         bookAuthor.textContent = element.author;
@@ -76,6 +78,7 @@ dialog.addEventListener("close", ()=> {
         inputAuthor.value, 
         inputPages.value, 
         inputWasRead.value);
+    
 });
 
 
