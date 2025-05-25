@@ -51,23 +51,31 @@ function displayOnPage(array) {
 
 // DIALOG SECTION
 const dialog = document.querySelector("dialog");
+const form = document.querySelector(".add-book-form");
 const btnNewBook = document.querySelector(".btn-new-book");
 const btnCancel = document.querySelector(".btn-cancel-form");
 const btnSubmit = document.querySelector(".btn-submit-form");
+
+const inputTitle = document.querySelector("#book-title");
+const inputAuthor = document.querySelector("#book-author");
+const inputPages = document.querySelector("#book-pages");
+// const inputTitle = document.querySelector(".book-author");
 
 btnNewBook.addEventListener("click", () => {
     dialog.showModal();
 });
 
-btnCancel.addEventListener("click", () => {
+btnSubmit.addEventListener("click", (event)=> {
+    console.log(inputTitle);
+    console.log(inputTitle.value);
+    console.log(inputTitle.textContent);
+    event.preventDefault()
     dialog.close();
-});
+})
 
-btnSubmit.addEventListener("click", (event) => {
-    event.preventDefault();
-});
-
-
+// dialog.addEventListener("close", ()=> {
+//     // return myLibrary.push(form.value);
+// });
 
 
 
