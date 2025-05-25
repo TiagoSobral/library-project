@@ -59,23 +59,24 @@ const btnSubmit = document.querySelector(".btn-submit-form");
 const inputTitle = document.querySelector("#book-title");
 const inputAuthor = document.querySelector("#book-author");
 const inputPages = document.querySelector("#book-pages");
-// const inputTitle = document.querySelector(".book-author");
+const inputWasRead = document.querySelector("input[name='book-was-read']");
 
 btnNewBook.addEventListener("click", () => {
     dialog.showModal();
 });
 
 btnSubmit.addEventListener("click", (event)=> {
-    console.log(inputTitle);
-    console.log(inputTitle.value);
-    console.log(inputTitle.textContent);
     event.preventDefault()
     dialog.close();
 })
 
-// dialog.addEventListener("close", ()=> {
-//     // return myLibrary.push(form.value);
-// });
+dialog.addEventListener("close", ()=> {
+    addBookToLibrary(
+        inputTitle.value, 
+        inputAuthor.value, 
+        inputPages.value, 
+        inputWasRead.value);
+});
 
 
 
