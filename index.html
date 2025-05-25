@@ -12,37 +12,29 @@
 <body>
     <header>
         <dialog>
-            <form class="add-book-form" method="dialog">
+            <form class="add-book-form">
                     <fieldset>
-                        <div>
                             <label for="book-title">Title</label>
                             <input type="text" id="book-title" name="book-title">
-                        </div>
-                        <div>
+    
+
                             <label for="book-author">Author</label>
                             <input type="text" id="book-author" name="book-author">
-                        </div>
-                        <div>
+    
+
                             <label for="book-pages">Pages</label>
                             <input type="number" id="book-pages" name="book-pages">
-                        </div>
                     </fieldset>
                 <fieldset>
                     <legend>Have you read the book?</legend>
-                    <div>
                         <label for="book-was-read">Yes</label>
                         <input type="radio" id="book-was-read" name="book-was-read" value="yes">
                         <label for="book-was-noread">No</label>
-                        <input type="radio" id="book-was-read" name="book-was-noread" value="no">
-                    </div>
+                        <input type="radio" id="book-was-noread" name="book-was-read" value="no">
                 </fieldset>
                 <fieldset>
-                    <div>
-                        <button type="submit" class="btn-submit-form" formmethod="dialog">Add Book</button>
-                    </div>
-                    <div>
+                        <button type="submit" class="btn-submit-form">Add Book</button>
                         <button class="btn-cancel-form">Cancel</button>
-                    </div>
                 </fieldset>
             </form>
         </dialog>
