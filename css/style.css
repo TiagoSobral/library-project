@@ -82,3 +82,19 @@ tr:nth-child(odd) td {
 caption {
   padding: 10px;
 }
+
+
+td:last-child {
+  padding: ;
+}
+
+td:last-child > button {
+  background: url("../trash-xmark-svgrepo-com.svg");
+  width: 2rem;
+  height: 2rem;
+  background-size:contain;
+  scale: 0.7;
+  border-width: 0;
+  padding: 2px;
+  opacity: 70%;
+}
