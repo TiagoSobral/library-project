@@ -44,6 +44,7 @@ function displayOnPage(array) {
         bookPages.textContent = element.pages;
         bookWasRead.textContent = element.readBook;
         bookRow.setAttribute("id", element.id);
+        // btnErase.textContent = "x";
     });
 
     tableBody.appendChild(bookRow);
