@@ -84,12 +84,8 @@ caption {
 }
 
 
-td:last-child {
-  padding: ;
-}
-
 td:last-child > button {
-  background: url("../trash-xmark-svgrepo-com.svg");
+  background: url("../svgs/trash-xmark-svgrepo-com.svg");
   width: 2rem;
   height: 2rem;
   background-size:contain;
@@ -98,3 +94,4 @@ td:last-child > button {
   padding: 2px;
   opacity: 70%;
 }
+
