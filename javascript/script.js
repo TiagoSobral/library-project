@@ -10,7 +10,7 @@ table.setAttribute("style", "display: none");
 // LIBRARY ARRAY
 const myLibrary = [];
 
-// FUNCTIONS
+    // Functions
 
 function Book(title, author, pages, readBook) {
     this.title = title;
@@ -34,14 +34,16 @@ function displayOnPage(array) {
     const bookAuthor = document.createElement("td");
     const bookPages = document.createElement("td");
     const bookWasRead = document.createElement("td");
+    const erase = document.createElement("td");
+    const btnErase = document.createElement("button");
 
-    bookRow.setAttribute("id", crypto.randomUUID());
 
     array.forEach( (element) => {
         bookTitle.textContent = element.title;
         bookAuthor.textContent = element.author;
         bookPages.textContent = element.pages;
         bookWasRead.textContent = element.readBook;
+        bookRow.setAttribute("id", element.id);
     });
 
     tableBody.appendChild(bookRow);
@@ -49,9 +51,14 @@ function displayOnPage(array) {
     bookRow.appendChild(bookAuthor);
     bookRow.appendChild(bookPages);
     bookRow.appendChild(bookWasRead);
+    bookRow.appendChild(erase);
+    erase.appendChild(btnErase);
 };
 
 // DIALOG SECTION
+
+    // Element Creation
+
 const dialog = document.querySelector("dialog");
 const form = document.querySelector(".add-book-form");
 const btnNewBook = document.querySelector(".btn-new-book");
@@ -61,7 +68,9 @@ const btnSubmit = document.querySelector(".btn-submit-form");
 const inputTitle = document.querySelector("#book-title");
 const inputAuthor = document.querySelector("#book-author");
 const inputPages = document.querySelector("#book-pages");
-const inputWasRead = document.querySelector("input[name='book-was-read']");
+const inputWasRead = document.querySelectorAll("input[name='book-was-read']");
+
+    // Event Listeners
 
 btnNewBook.addEventListener("click", () => {
     dialog.showModal();
@@ -69,17 +78,27 @@ btnNewBook.addEventListener("click", () => {
 
 btnSubmit.addEventListener("click", (event)=> {
     event.preventDefault()
-    dialog.close();
+    dialog.close(dialog.value);
 })
 
 dialog.addEventListener("close", ()=> {
     addBookToLibrary(
         inputTitle.value, 
         inputAuthor.value, 
-        inputPages.value, 
-        inputWasRead.value);
-    
+        inputPages.value,
+        wasItRead());
 });
+
+    // Functions
+
+function wasItRead() {
+    for (element of inputWasRead) {
+        if (element.checked === true) {
+            return element.value;
+        }
+    }
+}
+
 
 
 
