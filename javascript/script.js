@@ -36,8 +36,10 @@ function displayOnPage(array) {
         const bookWasRead = document.createElement("td");
     
     const readStatus = document.createElement("td");
-        const btnStatus = document.createElement("button");
+        const btnStatus = document.createElement("div");
         btnStatus.setAttribute("class", "status")
+            const statusToggle = document.createElement("div");
+            statusToggle.setAttribute("class", "toggle")
         
     const erase = document.createElement("td");
         const btnErase = document.createElement("button");
@@ -59,6 +61,7 @@ function displayOnPage(array) {
     
     bookRow.appendChild(readStatus);
         readStatus.appendChild(btnStatus);
+            btnStatus.appendChild(statusToggle);
 
     bookRow.appendChild(erase);
         erase.appendChild(btnErase);
@@ -99,6 +102,7 @@ dialog.addEventListener("close", ()=> {
         inputPages.value,
         wasItRead());
     removeBook();
+    toggleAnimation();
 }); 
 
     // Functions
@@ -127,5 +131,14 @@ function removeBook() {
     });
 }; 
 
+// SHOW LIBRARY
+
+    // Event Listeners
+function toggleAnimation() {
+    const btnSwitch = document.querySelector(".status");
+    btnSwitch.addEventListener("click", ()=> {
+        btnSwitch.classList.toggle("active");
+    })
+};
 
 
