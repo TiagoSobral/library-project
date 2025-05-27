@@ -89,7 +89,7 @@ dialog.addEventListener("close", ()=> {
         inputAuthor.value, 
         inputPages.value,
         wasItRead());
-    buttonEventListener();
+    removeBook();
 }); 
 
     // Functions
@@ -102,11 +102,18 @@ function wasItRead() {
     }
 }
 
-function buttonEventListener() {
+function removeBook() {
     const btnsTrash = document.querySelectorAll("td > button");
     btnsTrash.forEach((element)=> {
         element.addEventListener("click", ()=> {
-            console.log("click");
+            let bookID = element.parentElement.parentElement.id;
+            element.parentElement.parentElement.remove();
+
+            for (book of myLibrary) {
+                if (book.id === bookID) {
+                    myLibrary.splice(myLibrary[book],1);
+                }
+            }
         })
     });
 }; 
