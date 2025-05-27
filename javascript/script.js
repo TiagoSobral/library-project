@@ -44,7 +44,6 @@ function displayOnPage(array) {
         bookPages.textContent = element.pages;
         bookWasRead.textContent = element.readBook;
         bookRow.setAttribute("id", element.id);
-        // btnErase.textContent = "x";
     });
 
     tableBody.appendChild(bookRow);
@@ -54,6 +53,8 @@ function displayOnPage(array) {
     bookRow.appendChild(bookWasRead);
     bookRow.appendChild(erase);
     erase.appendChild(btnErase);
+
+
 };
 
 // DIALOG SECTION
@@ -88,7 +89,8 @@ dialog.addEventListener("close", ()=> {
         inputAuthor.value, 
         inputPages.value,
         wasItRead());
-});
+    buttonEventListener();
+}); 
 
     // Functions
 
@@ -100,7 +102,14 @@ function wasItRead() {
     }
 }
 
-
+function buttonEventListener() {
+    const btnsTrash = document.querySelectorAll("td > button");
+    btnsTrash.forEach((element)=> {
+        element.addEventListener("click", ()=> {
+            console.log("click");
+        })
+    });
+}; 
 
 
 
