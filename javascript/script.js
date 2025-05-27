@@ -30,30 +30,38 @@ function addBookToLibrary(name, author, pages, readBook) {
 function displayOnPage(array) {
     
     const bookRow = document.createElement("tr");
-    const bookTitle = document.createElement("td");
-    const bookAuthor = document.createElement("td");
-    const bookPages = document.createElement("td");
-    const bookWasRead = document.createElement("td");
+        const bookTitle = document.createElement("td");
+        const bookAuthor = document.createElement("td");
+        const bookPages = document.createElement("td");
+        const bookWasRead = document.createElement("td");
+    
+    const readStatus = document.createElement("td");
+        const btnStatus = document.createElement("button");
+        btnStatus.setAttribute("class", "status")
+        
     const erase = document.createElement("td");
-    const btnErase = document.createElement("button");
-
+        const btnErase = document.createElement("button");
+        btnErase.setAttribute("class", "erase");
 
     array.forEach( (element) => {
-        bookTitle.textContent = element.title;
-        bookAuthor.textContent = element.author;
-        bookPages.textContent = element.pages;
-        bookWasRead.textContent = element.readBook;
         bookRow.setAttribute("id", element.id);
+            bookTitle.textContent = element.title;
+            bookAuthor.textContent = element.author;
+            bookPages.textContent = element.pages;
+            bookWasRead.textContent = element.readBook;
     });
 
     tableBody.appendChild(bookRow);
-    bookRow.appendChild(bookTitle);
-    bookRow.appendChild(bookAuthor);
-    bookRow.appendChild(bookPages);
-    bookRow.appendChild(bookWasRead);
-    bookRow.appendChild(erase);
-    erase.appendChild(btnErase);
+        bookRow.appendChild(bookTitle);
+        bookRow.appendChild(bookAuthor);
+        bookRow.appendChild(bookPages);
+        bookRow.appendChild(bookWasRead);
+    
+    bookRow.appendChild(readStatus);
+        readStatus.appendChild(btnStatus);
 
+    bookRow.appendChild(erase);
+        erase.appendChild(btnErase);
 
 };
 
@@ -62,15 +70,16 @@ function displayOnPage(array) {
     // Element Creation
 
 const dialog = document.querySelector("dialog");
-const form = document.querySelector(".add-book-form");
-const btnNewBook = document.querySelector(".btn-new-book");
-const btnCancel = document.querySelector(".btn-cancel-form");
-const btnSubmit = document.querySelector(".btn-submit-form");
+    const form = document.querySelector(".add-book-form");
+        const inputTitle = document.querySelector("#book-title");
+        const inputAuthor = document.querySelector("#book-author");
+        const inputPages = document.querySelector("#book-pages");
+        const inputWasRead = document.querySelectorAll("input[name='book-was-read']");
+        
+        const btnNewBook = document.querySelector(".btn-new-book");
+        const btnCancel = document.querySelector(".btn-cancel-form");
+        const btnSubmit = document.querySelector(".btn-submit-form");
 
-const inputTitle = document.querySelector("#book-title");
-const inputAuthor = document.querySelector("#book-author");
-const inputPages = document.querySelector("#book-pages");
-const inputWasRead = document.querySelectorAll("input[name='book-was-read']");
 
     // Event Listeners
 
@@ -103,7 +112,7 @@ function wasItRead() {
 }
 
 function removeBook() {
-    const btnsTrash = document.querySelectorAll("td > button");
+    const btnsTrash = document.querySelectorAll(".erase");
     btnsTrash.forEach((element)=> {
         element.addEventListener("click", ()=> {
             let bookID = element.parentElement.parentElement.id;
