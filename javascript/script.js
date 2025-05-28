@@ -119,24 +119,34 @@ function removeFromMyLibraryArray(bookID) {
 
 function switchReadStatus() {
     const btnSwitch = document.querySelector(".status");
-    const wasReadCell = btnSwitch.parentElement.previousSibling.textContent;
-    
+    const wasReadCell = btnSwitch.parentElement.previousSibling;
+    const wasReadCellId = btnSwitch.parentElement.previousSibling.dataset.id;
     
     if (wasReadCell === "Yes") {
         btnSwitch.classList.toggle("active");
     }
 
     btnSwitch.addEventListener("click", ()=> {
-        if (wasReadCell === "Yes") {
+        if (wasReadCell.textContent === "Yes") {
             btnSwitch.classList.remove("active");
             wasReadCell.textContent = "No";
+            changeMyLibraryReadStatus("No", wasReadCellId)
         }
         else {
             btnSwitch.classList.toggle("active");
             wasReadCell.textContent = "Yes";
+            changeMyLibraryReadStatus("Yes", wasReadCellId)
         }
     })
 };
+
+function changeMyLibraryReadStatus(answer, match) {
+    for (book of myLibrary) {
+        if (book.id === match) {
+            book.changeReadStatus(answer);
+        }
+    }
+}
 
     // EVENT LISTENERS
 
@@ -156,7 +166,7 @@ dialog.addEventListener("close", ()=> {
         inputPages.value,
         wasItRead());
     removeBook();
-    toggleAnimation();
+    switchReadStatus();
 }); 
 
 
