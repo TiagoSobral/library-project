@@ -5,12 +5,22 @@ const tableBody = document.querySelector("tbody");
 
 table.setAttribute("style", "display: none");
 
+const dialog = document.querySelector("dialog");
+    const form = document.querySelector(".add-book-form");
+        const inputTitle = document.querySelector("#book-title");
+        const inputAuthor = document.querySelector("#book-author");
+        const inputPages = document.querySelector("#book-pages");
+        const inputWasRead = document.querySelectorAll("input[name='book-was-read']");
+        
+        const btnNewBook = document.querySelector(".btn-new-book");
+        const btnCancel = document.querySelector(".btn-cancel-form");
+        const btnSubmit = document.querySelector(".btn-submit-form");
 
 
 // LIBRARY ARRAY
 const myLibrary = [];
 
-    // Functions
+    // FUNCTIONS
 
 function Book(title, author, pages, readBook) {
     this.title = title;
@@ -25,8 +35,6 @@ Book.prototype.changeReadStatus = function(answer) {
         this.readBook = answer;
     }
 }
-
-
 
 function addBookToLibrary(name, author, pages, readBook) {
     let book = new Book(name, author, pages, readBook);
@@ -79,45 +87,6 @@ function displayOnPage(array) {
 
 };
 
-// DIALOG SECTION
-
-    // Element Creation
-
-const dialog = document.querySelector("dialog");
-    const form = document.querySelector(".add-book-form");
-        const inputTitle = document.querySelector("#book-title");
-        const inputAuthor = document.querySelector("#book-author");
-        const inputPages = document.querySelector("#book-pages");
-        const inputWasRead = document.querySelectorAll("input[name='book-was-read']");
-        
-        const btnNewBook = document.querySelector(".btn-new-book");
-        const btnCancel = document.querySelector(".btn-cancel-form");
-        const btnSubmit = document.querySelector(".btn-submit-form");
-
-
-    // Event Listeners
-
-btnNewBook.addEventListener("click", () => {
-    dialog.showModal();
-});
-
-btnSubmit.addEventListener("click", (event)=> {
-    event.preventDefault()
-    dialog.close(dialog.value);
-})
-
-dialog.addEventListener("close", ()=> {
-    addBookToLibrary(
-        inputTitle.value, 
-        inputAuthor.value, 
-        inputPages.value,
-        wasItRead());
-    removeBook();
-    toggleAnimation();
-}); 
-
-    // Functions
-
 function wasItRead() {
     for (element of inputWasRead) {
         if (element.checked === true) {
@@ -141,17 +110,14 @@ function removeBook() {
 }; 
 
 function removeFromMyLibraryArray(bookID) {
-            for (book of myLibrary) {
-                if (book.id === bookID) {
-                    myLibrary.splice(myLibrary[book],1);
-                }
-            }
-        };
+    for (book of myLibrary) {
+        if (book.id === bookID) {
+            myLibrary.splice(myLibrary[book],1);
+        }
+    }
+};
 
-// SHOW LIBRARY
-
-    // Event Listeners
-function toggleAnimation() {
+function switchReadStatus() {
     const btnSwitch = document.querySelector(".status");
     const wasReadCell = btnSwitch.parentElement.previousSibling.textContent;
     
@@ -171,5 +137,28 @@ function toggleAnimation() {
         }
     })
 };
+
+    // EVENT LISTENERS
+
+btnNewBook.addEventListener("click", () => {
+    dialog.showModal();
+});
+
+btnSubmit.addEventListener("click", (event)=> {
+    event.preventDefault()
+    dialog.close(dialog.value);
+})
+
+dialog.addEventListener("close", ()=> {
+    addBookToLibrary(
+        inputTitle.value, 
+        inputAuthor.value, 
+        inputPages.value,
+        wasItRead());
+    removeBook();
+    toggleAnimation();
+}); 
+
+
 
 
