@@ -54,11 +54,14 @@ function displayOnPage(array) {
         btnErase.setAttribute("class", "erase");
 
     array.forEach( (element) => {
-        bookRow.setAttribute("id", element.id);
+        bookRow.setAttribute("data-id", element.id);
             bookTitle.textContent = element.title;
             bookAuthor.textContent = element.author;
             bookPages.textContent = element.pages;
             bookWasRead.textContent = element.readBook;
+            bookWasRead.setAttribute("data-id", element.id); 
+            // this one is set to data id to help the prototype
+            // function on read status with the dom elements.
     });
 
     tableBody.appendChild(bookRow);
@@ -125,19 +128,25 @@ function wasItRead() {
 
 function removeBook() {
     const btnsTrash = document.querySelectorAll(".erase");
+    
     btnsTrash.forEach((element)=> {
         element.addEventListener("click", ()=> {
-            let bookID = element.parentElement.parentElement.id;
+            let bookID = element.parentElement.parentElement.dataset.id;
             element.parentElement.parentElement.remove();
 
+            removeFromMyLibraryArray(bookID);
+
+        })
+    });
+}; 
+
+function removeFromMyLibraryArray(bookID) {
             for (book of myLibrary) {
                 if (book.id === bookID) {
                     myLibrary.splice(myLibrary[book],1);
                 }
             }
-        })
-    });
-}; 
+        };
 
 // SHOW LIBRARY
 
@@ -145,15 +154,20 @@ function removeBook() {
 function toggleAnimation() {
     const btnSwitch = document.querySelector(".status");
     const wasReadCell = btnSwitch.parentElement.previousSibling.textContent;
+    
+    
     if (wasReadCell === "Yes") {
         btnSwitch.classList.toggle("active");
     }
+
     btnSwitch.addEventListener("click", ()=> {
         if (wasReadCell === "Yes") {
-        btnSwitch.classList.remove("active");
+            btnSwitch.classList.remove("active");
+            wasReadCell.textContent = "No";
         }
-        if (wasReadCell === "No") {
+        else {
             btnSwitch.classList.toggle("active");
+            wasReadCell.textContent = "Yes";
         }
     })
 };
