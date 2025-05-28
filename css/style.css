@@ -44,6 +44,36 @@
     text-wrap: balance;
   }
 
+/* Main styling */
+
+body {
+  display: grid;
+  grid-template-rows: minmax(10rem,1fr) minmax(10rem,4fr);
+  gap: 3rem;
+}
+
+header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header > button {
+  width: 10rem;
+  height: 3rem;
+  border-radius: 2rem;
+  border: none;
+  background-color: rgb(129, 167, 235);
+  color: white;
+  font-weight: bold;
+}
+
+header > button {
+  box-shadow: 0.1rem 0.1rem 0.2rem 0.05rem rgba(0, 0, 0, 0.15);
+}
+
+
+
 
 /* CSS MINIMAL TABLE FORMATTING */
 
