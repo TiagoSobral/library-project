@@ -50,6 +50,7 @@ body {
   display: grid;
   grid-template-rows: minmax(10rem,1fr) minmax(10rem,4fr);
   gap: 3rem;
+  font-family: helvetica, sans-serif;
 }
 
 header{
@@ -136,11 +137,10 @@ fieldset:last-child {
 
 
 
-
 /* CSS MINIMAL TABLE FORMATTING */
 
 html {
-  font-family: sans-serif;
+  font-family: helvetica, sans-serif;
 }
 
 table {
@@ -219,8 +219,8 @@ td:last-child > button:active {
   }
 
   .toggle {
-    width: 47%;
-    height: 78%;
+    width: 1.2rem;
+    height: 1.2rem;
     border-radius: 1rem;
     margin: 0.25rem;
     background-color: white;
@@ -233,3 +233,13 @@ td:last-child > button:active {
   }
 
 
+dialog::backdrop {
+  backdrop-filter: blur(20px);
+  background-color: rgba(0, 0, 0, 0.086);
+}
+
+dialog {
+  border-radius: 1rem;
+  border: none;
+  box-shadow: 0.1rem 0.2rem 0.3rem 0.1rem rgba(0, 0, 0, 0.158);
+}
