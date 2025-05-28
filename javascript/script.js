@@ -122,7 +122,7 @@ function switchReadStatus() {
     const wasReadCell = btnSwitch.parentElement.previousSibling;
     const wasReadCellId = btnSwitch.parentElement.previousSibling.dataset.id;
     
-    if (wasReadCell === "Yes") {
+    if (wasReadCell.textContent === "Yes") {
         btnSwitch.classList.toggle("active");
     }
 
