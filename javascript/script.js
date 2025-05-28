@@ -20,6 +20,14 @@ function Book(title, author, pages, readBook) {
     this.readBook = readBook;
 };
 
+Book.prototype.changeReadStatus = function(answer) {
+    if (this.readBook !== answer) {
+        this.readBook = answer;
+    }
+}
+
+
+
 function addBookToLibrary(name, author, pages, readBook) {
     let book = new Book(name, author, pages, readBook);
     myLibrary.push(book);
@@ -136,8 +144,17 @@ function removeBook() {
     // Event Listeners
 function toggleAnimation() {
     const btnSwitch = document.querySelector(".status");
-    btnSwitch.addEventListener("click", ()=> {
+    const wasReadCell = btnSwitch.parentElement.previousSibling.textContent;
+    if (wasReadCell === "Yes") {
         btnSwitch.classList.toggle("active");
+    }
+    btnSwitch.addEventListener("click", ()=> {
+        if (wasReadCell === "Yes") {
+        btnSwitch.classList.remove("active");
+        }
+        if (wasReadCell === "No") {
+            btnSwitch.classList.toggle("active");
+        }
     })
 };
 
