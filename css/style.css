@@ -157,6 +157,7 @@ td, th {
 
 th {
   background-color: rgb(235,235,235);
+  font-weight: bold;
 }
 
 td {
@@ -172,7 +173,9 @@ tr:nth-child(odd) td {
 }
 
 caption {
-  padding: 10px;
+  padding: 20px;
+  font-size: 1.5rem;
+  font-weight: bolder;
 }
 
   /* Erase Button Trash Can */
@@ -232,6 +235,7 @@ td:last-child > button:active {
     justify-content: end;
   }
 
+/* DIALOG */
 
 dialog::backdrop {
   backdrop-filter: blur(20px);
@@ -287,6 +291,16 @@ fieldset:nth-child(2) label {
 fieldset:nth-child(2) {
   align-items: center;
 }
+
+input:user-invalid {
+  outline: red 0.5px solid;
+}
+
+  /* TABLE */
+
+  main {
+    justify-items: center;
+  }
 
 
 
