@@ -165,6 +165,9 @@ btnNewBook.addEventListener("click", () => {
 
 btnSubmit.addEventListener("click", (event)=> {
     event.preventDefault()
+    if (!inputTitle.validity.valueMissing &&
+        !inputAuthor.validity.valueMissing &&
+        !inputPages.validity.valueMissing) {
     addBookToLibrary(
             inputTitle.value, 
             inputAuthor.value, 
@@ -174,6 +177,10 @@ btnSubmit.addEventListener("click", (event)=> {
     removeBook();
     switchReadStatus();
     dialog.close();
+    }
+    else {
+        alert("Empty fields are not accepted");
+    }
 });
 
 btnCancel.addEventListener("click", ()=> {
