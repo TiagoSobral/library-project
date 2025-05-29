@@ -154,7 +154,7 @@ btnNewBook.addEventListener("click", () => {
     dialog.showModal();
 });
 
-btnSubmit.addEventListener("click", (event)=> {
+btnSubmit.addEventListener("submit", (event)=> {
     event.preventDefault()
     dialog.close(dialog.value);
 })
