@@ -156,6 +156,11 @@ table {
   box-shadow: 0.1rem 0.2rem 0.3rem 0.1rem rgba(0, 0, 0, 0.158);
 }
 
+thead {
+  position: sticky;
+  top: 0;
+}
+
 td, th {
   border: 1px solid rgb(190,190,190);
   padding: 10px 20px;
@@ -299,6 +304,9 @@ fieldset:nth-child(2) {
     justify-items: center;
   }
 
+  tbody  tr:hover td {
+    background: rgb(129, 170, 240);
+  }
 
 
 
