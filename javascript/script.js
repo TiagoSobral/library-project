@@ -7,6 +7,7 @@ table.setAttribute("style", "display: none");
 
 const dialog = document.querySelector("dialog");
     const form = document.querySelector(".add-book-form");
+    const allInputs = document.querySelectorAll("input");
         const inputTitle = document.querySelector("#book-title");
         const inputAuthor = document.querySelector("#book-author");
         const inputPages = document.querySelector("#book-pages");
@@ -148,26 +149,46 @@ function changeMyLibraryReadStatus(answer, match) {
     }
 }
 
+function clearForm() {
+    for (element of allInputs) {
+        element.value = "";
+        }
+}
+
     // EVENT LISTENERS
+
 
 btnNewBook.addEventListener("click", () => {
     dialog.showModal();
 });
 
-btnSubmit.addEventListener("submit", (event)=> {
-    event.preventDefault()
-    dialog.close(dialog.value);
-})
 
-dialog.addEventListener("close", ()=> {
+btnSubmit.addEventListener("click", (event)=> {
+    event.preventDefault()
     addBookToLibrary(
-        inputTitle.value, 
-        inputAuthor.value, 
-        inputPages.value,
-        wasItRead());
+            inputTitle.value, 
+            inputAuthor.value, 
+            inputPages.value,
+            wasItRead());
+    
     removeBook();
     switchReadStatus();
+    dialog.close();
+});
+
+btnCancel.addEventListener("click", ()=> {
+    dialog.close();
+})
+
+
+dialog.addEventListener("close", ()=> {
+      const allInputs = document.querySelectorAll("input");
+      for (element of allInputs) {
+        element.value = "";
+      }
 }); 
+
+
 
 
 
