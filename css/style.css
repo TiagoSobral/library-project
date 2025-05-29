@@ -150,7 +150,7 @@ html {
 
 table {
   border-collapse: collapse;
-  border: 2px solid rgb(200,200,200);
+  /* border: 2px solid rgb(200,200,200); */
   letter-spacing: 1px;
   font-size: 0.8rem;
   box-shadow: 0.1rem 0.2rem 0.3rem 0.1rem rgba(0, 0, 0, 0.158);
@@ -159,15 +159,17 @@ table {
 thead {
   position: sticky;
   top: 0;
+  box-shadow: 0.05rem 0.1rem 0.2rem 0.1rem rgba(0, 0, 0, 0.158)
+
 }
 
 td, th {
-  border: 1px solid rgb(190,190,190);
+  /* border: 1px solid rgb(190,190,190); */
   padding: 10px 20px;
 }
 
 th {
-  background-color: rgb(235,235,235);
+  background-color: rgb(184 205 229);
   font-weight: bold;
 }
 
@@ -180,7 +182,7 @@ tr:nth-child(even) td {
 }
 
 tr:nth-child(odd) td {
-  background-color: rgb(245,245,245);
+  background-color: rgb(237, 237, 237);
 }
 
 caption {
@@ -305,8 +307,22 @@ fieldset:nth-child(2) {
   }
 
   tbody  tr:hover td {
-    background: rgb(129, 170, 240);
+    background: rgba(148, 160, 181, 0.803);
   }
 
+  th:first-child {
+    border-top-left-radius: 6px;
+  }
 
+  th:last-child {
+    border-top-right-radius: 6px;
+  }
+
+  tr:last-child td:first-child {
+    border-bottom-left-radius: 6px;
+  }
+
+  tr:last-child td:last-child {
+     border-bottom-right-radius: 6px;
+  }
 
