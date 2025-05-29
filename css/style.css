@@ -235,11 +235,30 @@ td:last-child > button:active {
 
 dialog::backdrop {
   backdrop-filter: blur(20px);
-  background-color: rgba(0, 0, 0, 0.086);
+  background-color: rgba(255, 255, 255, 0.55);
 }
 
 dialog {
   border-radius: 1rem;
   border: none;
   box-shadow: 0.1rem 0.2rem 0.3rem 0.1rem rgba(0, 0, 0, 0.158);
+  background-color: rgba(137, 152, 173, 0.122);
 }
+
+input[type="text"], input[type="number"] {
+  background-color: rgba(255, 255, 255, 0.799);
+  border: 1px solid rgba(0, 0, 0, 0.209);
+  border-radius: 5px;
+}
+
+fieldset > button {
+  width: 10rem;
+  border-radius: 15px;
+  border-style: none;
+  background-color:  rgba(129, 168, 235, 0.747);
+  box-shadow: 0.1rem 0.1rem 0.2rem 0.05rem rgba(0, 0, 0, 0.15);
+  color: white;
+  font-weight: bold;
+}
+
+
