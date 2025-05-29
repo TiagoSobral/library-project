@@ -51,6 +51,7 @@ body {
   grid-template-rows: minmax(10rem,1fr) minmax(10rem,4fr);
   gap: 3rem;
   font-family: helvetica, sans-serif;
+  background: linear-gradient(rgb(189, 195, 199), rgb(44, 62, 80));;
 }
 
 header{
@@ -73,11 +74,15 @@ header > button {
   box-shadow: 0.1rem 0.1rem 0.2rem 0.05rem rgba(0, 0, 0, 0.15);
 }
 
+header > button:focus {
+  outline: none;
+}
+
 dialog {
   width: 35rem;
   height: 21rem;
-  align-self: center;
   justify-self: center;
+  margin-top: 15rem;
 }
 
 form {
@@ -231,14 +236,13 @@ td:last-child > button:active {
 
 dialog::backdrop {
   backdrop-filter: blur(20px);
-  background-color: rgba(255, 255, 255, 0.55);
 }
 
 dialog {
   border-radius: 1rem;
   border: none;
   box-shadow: 0.1rem 0.2rem 0.3rem 0.1rem rgba(0, 0, 0, 0.158);
-  background-color: rgba(137, 152, 173, 0.122);
+  background-color: #f4f4f4dc;
 }
 
 input[type="text"], 
@@ -254,7 +258,7 @@ fieldset > button {
   width: 10rem;
   border-radius: 15px;
   border-style: none;
-  background-color:  rgba(129, 168, 235, 0.747);
+  background-color:  rgba(129, 168, 235, 0.918);
   box-shadow: 0.1rem 0.1rem 0.2rem 0.05rem rgba(0, 0, 0, 0.15);
   color: white;
   font-weight: bold;
@@ -262,8 +266,8 @@ fieldset > button {
 }
 
 input[type="text"]:focus, input[type="number"]:focus {
-  outline-width: 0.2px;
-  outline-color: rgb(101, 153, 243);
+  outline: none;
+  border: solid rgb(101, 153, 243) 1px;
 }
 
 div > legend, 
