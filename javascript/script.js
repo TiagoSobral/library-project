@@ -23,19 +23,28 @@ const myLibrary = [];
 
     // FUNCTIONS
 
-function Book(title, author, pages, readBook) {
-    this.title = title;
-    this.author = author;
-    this.id = crypto.randomUUID();
-    this.pages = pages;
-    this.readBook = readBook;
+class Book {
+    constructor(title, author, pages, readBook) {
+        this.title = title;
+        this.author = author;
+        this.id = crypto.randomUUID();
+        this.pages = pages;
+        this.readBook = readBook;
+    }
+
+    changeReadStatus(answer) {
+        if (this.readBook !== answer) {
+        this.readBook = answer;
+        }
+    }
+    
 };
 
-Book.prototype.changeReadStatus = function(answer) {
-    if (this.readBook !== answer) {
-        this.readBook = answer;
-    }
-}
+// Book.prototype.changeReadStatus = function(answer) {
+//     if (this.readBook !== answer) {
+//         this.readBook = answer;
+//     }
+// }
 
 function addBookToLibrary(name, author, pages, readBook) {
     let book = new Book(name, author, pages, readBook);
@@ -111,7 +120,7 @@ function removeBook() {
 }; 
 
 function removeFromMyLibraryArray(bookID) {
-    for (book of myLibrary) {
+    for (let book of myLibrary) {
         if (book.id === bookID) {
             myLibrary.splice(myLibrary[book],1);
         }
@@ -142,7 +151,7 @@ function switchReadStatus() {
 };
 
 function changeMyLibraryReadStatus(answer, match) {
-    for (book of myLibrary) {
+    for (let book of myLibrary) {
         if (book.id === match) {
             book.changeReadStatus(answer);
         }
